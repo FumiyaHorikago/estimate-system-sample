@@ -34,7 +34,7 @@ Route::group(['middleware'=>'auth','prefix' => 'management', 'as' => 'manage.'],
     Route::post('/money/update','ManageController@moneyUpdate')->name('money.update');
 });
 
-Route::post('/manage/getchild/{id}','ChildrenController@getChild');
+Route::post('/management/getchild/{id}','ChildrenController@getChild');
 Route::post('/child/choice','ChildrenController@choiceChildren');
 
 Route::post('/contact','MasterController@getEstimateData')->name('send.estimate');

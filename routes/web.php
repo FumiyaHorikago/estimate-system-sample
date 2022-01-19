@@ -27,7 +27,7 @@ Route::group(['middleware'=>'auth','prefix' => 'management', 'as' => 'manage.'],
     Route::post('/child/update','ChildrenController@update')->name('child.update');
     Route::get('/child/destroy/{id}','ChildrenController@destroy')->name('child.destroy');
     Route::post('/child/order','ChildrenController@order')->name('child.order');
-    Route::post('/getchildren/{id}','ChildrenController@getChildren');
+    Route::post('/getchildren','ChildrenController@getChildren');
 
     Route::post('/parent/update','ParentsController@update')->name('parent.update');
 

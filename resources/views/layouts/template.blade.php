@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>住宅見積シミュレーション</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
     <header>
         <div class='top'>
             <div class='header-container'>
-                <h1><a href=""><img src="{{ asset('images/logo.png') }}" alt="株式会社タカケン"></a></h1>
+                <h1><a href="http://www.k-takaken.co.jp/"><img src="{{ asset('images/logo.png') }}" alt="株式会社タカケン"></a></h1>
             </div>
         </div>
         <div class='bottom'>

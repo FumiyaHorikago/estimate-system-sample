@@ -334,7 +334,7 @@ main {
                     }
                     #price {
                         padding: 0 10px;
-                        font-size: 80px;
+                        font-size: 75px;
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
@@ -342,7 +342,7 @@ main {
                         color: #444;
                         margin-bottom: 20px;
                         @media screen and(max-width: 1200px) {
-                            font-size: calc(2.5rem + ((1vw - 7.68px) * 9.2593));
+                            font-size: calc(2.5rem + ((1vw - 7.68px) * 8.1019));;
                         }
                         @media screen and (max-width: 767px) {
                             font-size: calc(2.375rem + ((1vw - 3.2px) * 9.396));

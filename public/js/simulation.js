@@ -138,6 +138,9 @@ $(function () {
   }); //金額算出ボタンクリック時
 
   $("#run").on("click", function () {
+    $('.odometer').css({
+      'margin-bottom': '0'
+    });
     var choiceId = [];
     var formatId = [];
     var total = $('.amount-item').length;
@@ -205,7 +208,12 @@ $(function () {
         price *= element;
       });
       price = Math.round(Number(price));
-      $('.odometer').text(price);
+      $('.odometer').html(price);
+      setTimeout(function () {
+        $('.odometer').css({
+          'margin-bottom': '1px'
+        });
+      }, 2000);
       $('#chooseData').append('<input type="hidden" name="price" value="' + price + '" class="send_data">');
     }) //通信が失敗したとき
     .fail(function (error) {

@@ -36,8 +36,13 @@ class ChildrenController extends Controller
             $fileName = "";
         }
 
-        $latest = Children::orderBy('created_at','desc')->first();
-        $order = $latest->id + 1;
+        $length = Children::count();
+        if($length > 0){
+            $latest = Children::orderBy('created_at','desc')->first();
+            $order = $latest->id + 1;
+        }else{
+            $order = 1;
+        }
 
         $child = new Children;
         $child->title = $request->input('title');

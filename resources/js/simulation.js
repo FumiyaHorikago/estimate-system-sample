@@ -115,7 +115,7 @@ $(function(){
                 price *= element;
             });
             $('.odometer').text(price);
-            $('#chooseData').append('<input type="hidden" name="price" value="'+Number(price)+'" class="send_data">');
+            $('#chooseData').append('<input type="hidden" name="price" value="'+ Math.round(Number(price)) +'" class="send_data">');
         })
         //通信が失敗したとき
         .fail((error) => {

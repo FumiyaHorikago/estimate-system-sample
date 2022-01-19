@@ -128,7 +128,7 @@ $(function () {
     $.ajax({
       type: "post",
       //HTTP通信の種類
-      url: '/manage/getchildren/' + parentPre,
+      url: '/management/getchildren/' + parentPre,
       //通信したいURL
       dataType: 'json'
     }) //通信が成功したとき
@@ -175,7 +175,7 @@ $(function () {
     $.ajax({
       type: "post",
       //HTTP通信の種類
-      url: '/manage/getchild/' + targetId,
+      url: '/management/getchild/' + targetId,
       //通信したいURL
       dataType: 'json'
     }) //通信が成功したとき
@@ -212,7 +212,7 @@ $(function () {
       $.ajax({
         type: "post",
         //HTTP通信の種類
-        url: '/manage/child/order/',
+        url: '/management/child/order/',
         //通信したいURL
         data: {
           'json': idJson

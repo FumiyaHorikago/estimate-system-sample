@@ -833,7 +833,7 @@ $normal_0=$normal_1=$normal_2=$normal_3=$normal_4=$normal_5=$normal_6 = '';
             </div>
             <button id="run"><span>How Much ??</span></button>
 
-            <input type="hidden" id='price-basic' value='{{$money[0]["price"]}}'>
+            <input type="hidden" id='price-basic' value='{{round($money[0]["price"])}}'>
             <form action="{{ route('send.estimate') }}" method='post'>
                 @csrf
                 <button id='send'><span>選択した内容でお問い合わせ</span></button>

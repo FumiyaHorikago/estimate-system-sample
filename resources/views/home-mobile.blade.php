@@ -850,7 +850,7 @@
             </div>
             <button id="run"><span>How Much ??</span></button>
 
-            <input type="hidden" id='price-basic' value='{{$money[0]["price"]}}'>
+            <input type="hidden" id='price-basic' value='{{round($money[0]["price"])}}'>
             <input type="hidden" id='amount-num' value='{{$amount}}'>
 
             <form action="{{ route('send.estimate') }}" method='post'>

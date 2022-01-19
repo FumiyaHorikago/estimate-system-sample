@@ -204,8 +204,9 @@ $(function () {
       $(coefficients).each(function (index, element) {
         price *= element;
       });
+      price = Math.round(Number(price));
       $('.odometer').text(price);
-      $('#chooseData').append('<input type="hidden" name="price" value="' + Math.round(Number(price)) + '" class="send_data">');
+      $('#chooseData').append('<input type="hidden" name="price" value="' + price + '" class="send_data">');
     }) //通信が失敗したとき
     .fail(function (error) {
       console.log(error);

@@ -1,0 +1,264 @@
+main {
+  background-color: #f5f4f1;
+  overflow-x: hidden;
+  margin-top: 97px;
+}
+main #contact {
+  max-width: 1600px;
+  background-color: white;
+  margin: 0 auto;
+}
+main #contact #form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 10px;
+  min-height: 100vh;
+}
+@media screen and (max-width: 767px) {
+  main #contact #form {
+    max-width: 500px;
+  }
+}
+main #contact #form .title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+main #contact #form .title .logo {
+  width: 180px;
+  margin: 0 auto 30px;
+}
+main #contact #form .title .logo img {
+  width: 100%;
+}
+main #contact #form .title h2 {
+  display: inline-block;
+  color: white;
+  padding: 15px;
+  background-color: black;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+main #contact #form .caption {
+  text-align: center;
+  margin-bottom: 20px;
+}
+main #contact #form .caption span {
+  color: red;
+}
+main #contact #form form .unit {
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(232, 56, 40, 0.1);
+  margin-bottom: 3px;
+}
+@media screen and (max-width: 767px) {
+  main #contact #form form .unit {
+    flex-direction: column;
+  }
+}
+main #contact #form form .unit .head {
+  white-space: nowrap;
+  font-weight: normal;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  min-width: 150px;
+  width: 30%;
+  border-right: solid 3px white;
+  font-size: 16px;
+}
+@media screen and (max-width: 767px) {
+  main #contact #form form .unit .head {
+    width: 100%;
+    border-right: none;
+  }
+}
+main #contact #form form .unit .head .required {
+  color: red;
+}
+main #contact #form form .unit .body {
+  width: 70%;
+  color: #727272;
+  font-size: 16px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #f5f4f0;
+}
+@media screen and (max-width: 767px) {
+  main #contact #form form .unit .body {
+    width: 100%;
+  }
+}
+main #contact #form form .unit .body.column {
+  flex-direction: column;
+  align-items: flex-start;
+}
+main #contact #form form .unit .body input,
+main #contact #form form .unit .body textarea {
+  width: 100%;
+  background-color: white;
+  padding: 3px 5px;
+  border: solid 1px #ccc;
+  border-radius: 3px;
+}
+main #contact #form form .unit .body input.short,
+main #contact #form form .unit .body textarea.short {
+  width: 40%;
+  min-width: 160px;
+}
+main #contact #form form .unit .body .error-message {
+  display: block;
+  font-size: 12px;
+  color: red;
+  margin-top: 10px;
+}
+main #contact #form form .controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+@media screen and (max-width: 767px) {
+  main #contact #form form .controls {
+    flex-direction: column-reverse;
+  }
+}
+main #contact #form form .controls button {
+  background-color: #e93528;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: #b22d23 solid 10px;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 20px;
+  width: 49%;
+}
+main #contact #form form .controls button.back {
+  background-color: #b8b8b8;
+  border-bottom: #616161 solid 10px;
+}
+@media screen and (max-width: 767px) {
+  main #contact #form form .controls button.back {
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 767px) {
+  main #contact #form form .controls button {
+    font-size: 18px;
+    width: 100%;
+  }
+}
+main #contact #form form .controls button:hover {
+  transition: 0.2s;
+  margin-top: 2px;
+}
+main #contact #form form .controls button:hover.back {
+  border-bottom: #616161 solid 8px;
+}
+main #contact #form form .controls button:hover.back span {
+  filter: drop-shadow(0 0 3px white);
+}
+main #contact #form form .controls button:hover.submit {
+  border-bottom: #b22d23 solid 8px;
+}
+main #contact #form form .controls button:hover.submit span {
+  filter: drop-shadow(0 0 3px yellow);
+}
+main #contact #form form .controls button:active {
+  transition: 0.2s;
+  margin-top: 9px;
+}
+main #contact #form form .controls button:active.back {
+  border-bottom: #616161 solid 1px;
+}
+main #contact #form form .controls button:active.back span {
+  filter: drop-shadow(0 0 3px white);
+}
+main #contact #form form .controls button:active.submit {
+  border-bottom: #b22d23 solid 1px;
+}
+main #contact #form form .controls button:active.submit span {
+  filter: drop-shadow(0 0 3px yellow);
+}
+main #contact #form.complete {
+  text-align: center;
+}
+main #contact #form.complete > h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 767px) {
+  main #contact #form.complete > h2 {
+    font-size: 18px;
+  }
+}
+main #contact #form.complete > p {
+  line-height: 1.4;
+  margin-bottom: 40px;
+}
+@media screen and (max-width: 767px) {
+  main #contact #form.complete > p {
+    font-size: 14px;
+  }
+}
+main #contact #form.complete .btn {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 767px) {
+  main #contact #form.complete .btn {
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+main #contact #form.complete .btn a {
+  background-color: #e93528;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: #b22d23 solid 10px;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 20px;
+  width: 49%;
+}
+@media screen and (max-width: 767px) {
+  main #contact #form.complete .btn a {
+    width: 100%;
+    font-size: 18px;
+  }
+}
+main #contact #form.complete .btn a:last-child {
+  background-color: #2baa00;
+  border-bottom: #0c6a00 solid 10px;
+}
+@media screen and (max-width: 767px) {
+  main #contact #form.complete .btn a:last-child {
+    margin-top: 20px;
+  }
+}
+main #contact #form.complete .btn a:hover {
+  transition: 0.2s;
+  margin-top: 2px;
+  border-bottom: #b22d23 solid 8px;
+}
+main #contact #form.complete .btn a:hover span {
+  filter: drop-shadow(0 0 3px yellow);
+}
+main #contact #form.complete .btn a:hover:last-child {
+  border-bottom: #0c6a00 solid 8px;
+}
+main #contact #form.complete .btn a:active {
+  transition: 0.2s;
+  margin-top: 9px;
+  border-bottom: #b22d23 solid 1px;
+}
+main #contact #form.complete .btn a:active:last-child {
+  border-bottom: #0c6a00 solid 1px;
+}
+main #contact #form.complete .btn a:active span {
+  filter: drop-shadow(0 0 3px yellow);
+}

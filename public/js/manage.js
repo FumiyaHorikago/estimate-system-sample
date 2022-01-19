@@ -119,7 +119,7 @@ $(function () {
   }); // 小項目編集の親項目選択時のAjax処理
 
   $('#editParent').on('change', function () {
-    var parentId = $(this).val();
+    var parentPre = $(this).val();
     $.ajaxSetup({
       headers: {
         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
@@ -128,7 +128,7 @@ $(function () {
     $.ajax({
       type: "post",
       //HTTP通信の種類
-      url: '/manage/getchildren/' + parentId,
+      url: '/manage/getchildren/' + parentPre,
       //通信したいURL
       dataType: 'json'
     }) //通信が成功したとき
@@ -142,8 +142,8 @@ $(function () {
         $('#currentImage').attr('src', '');
         $('#currentImageName').val('');
         $('#editCoefficient').val('');
-        $('#editParentId option').attr("selected", false);
-        $('#editParentId option[value="' + parentId + '"]').prop('selected', true);
+        $('#editParentPrefix option').attr("selected", false);
+        $('#editParentPrefix option[value="' + parentPre + '"]').prop('selected', true);
       } else {
         $(res).each(function (index, val) {
           $('#editTarget').append('<option value="' + val.id + '">' + val.title + '</option>');
@@ -154,8 +154,8 @@ $(function () {
             $('#currentImage').attr('src', $(location).attr('protocol') + '//' + $(location).attr('host') + '/uploads/' + val.file_name);
             $('#currentImageName').val(val.file_name);
             $('#editCoefficient').val(val.coefficient);
-            $('#editParentId option').attr("selected", false);
-            $('#editParentId option[value="' + val.parent_id + '"]').prop('selected', true);
+            $('#editParentPrefix option').attr("selected", false);
+            $('#editParentPrefix option[value="' + val.prefix + '"]').prop('selected', true);
           }
 
           count++;
@@ -185,8 +185,8 @@ $(function () {
       $('#currentImage').attr('src', $(location).attr('protocol') + '//' + $(location).attr('host') + '/uploads/' + res.file_name);
       $('#currentImageName').val(res.file_name);
       $('#editCoefficient').val(res.coefficient);
-      $('#editParentId option').attr("selected", false);
-      $('#editParentId option[value="' + res.parent_id + '"]').prop('selected', true);
+      $('#editParentPrefix option').attr("selected", false);
+      $('#editParentPrefix option[value="' + res.prefix + '"]').prop('selected', true);
     }) //通信が失敗したとき
     .fail(function (error) {
       console.log('小項目が見つかりません。');
@@ -198,6 +198,40 @@ $(function () {
       $(this).children('li').each(function () {
         $(this).children('.index').text(count);
         count++;
+      });
+      var idArray = [];
+      $('.child_id').each(function (index, element) {
+        idArray.push($(element).val());
+      });
+      var idJson = JSON.stringify(idArray);
+      $.ajaxSetup({
+        headers: {
+          "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+        }
+      });
+      $.ajax({
+        type: "post",
+        //HTTP通信の種類
+        url: '/manage/child/order/',
+        //通信したいURL
+        data: {
+          'json': idJson
+        },
+        dataType: 'json'
+      }) //通信が成功したとき
+      .done(function (res) {
+        var now = new Date();
+        var yy = now.getFullYear();
+        var mm = now.getMonth() + 1;
+        var dd = now.getDate();
+        var h = now.getHours();
+        var m = now.getMinutes();
+        var s = now.getSeconds();
+        $('#true').removeClass('d-none').text(yy + '/' + mm + '/' + dd + ' ' + h + ':' + m + ':' + s + ' 並び順を更新しました。');
+      }) //通信が失敗したとき
+      .fail(function (error) {
+        console.log(error);
+        alert('正常に更新できませんでした。');
       });
     }
   });

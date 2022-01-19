@@ -13,5 +13,13 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/manage.js', 'public/js')
+    .js('resources/js/odometer.js', 'public/js')
+    .js('resources/js/simulation.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
-    .sass('resources/sass/manage.scss', 'public/css');
+    .sass('resources/sass/common.scss', 'public/css')
+    .sass('resources/sass/manage.scss', 'public/css')
+    .sass('resources/sass/home.scss', 'public/css')
+    .sass('resources/sass/contact.scss', 'public/css')
+    .options({
+        processCssUrls: false
+     });

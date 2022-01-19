@@ -1,66 +1,17 @@
-@extends('layouts.app')
+@extends('layouts.manage')
 
+@push('nav1')
+active
+@endpush
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">並び順</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
-                    <form action="{{ route('manage.child.order') }}" method='post'>
-                        @csrf
-                        <button class='btn btn-success btn-sm d-block mb-3' style="width:100%;">並び順を反映する</button>
-                        <div class='card card-body'>
-                            <ul class='order-list list-unstyled'>
-                                @foreach($parents as $parent)
-                                <li>
-                                    <span>
-                                        {{ $parent->name }}
-                                    </span>
-                                    <div class='children-list'>
-                                        <ol class='list-unstyled'>
-                                            @php $count = 1; @endphp
-                                            @foreach($children as $child)
-                                            @if($child->parent_id === $parent->id)
-                                            <li>
-                                                <div class='index'>
-                                                    {{ $count }}
-                                                </div>
-                                                <div class='item'>
-                                                    {{ $child->title }}
-                                                    <input type="hidden" name='child_id[]' value='{{ $child->id }}'>
-                                                </div>
-                                                <div class='delete'>
-                                                    <a href="{{ route('manage.child.destroy',['id'=>$child->id]) }}" class='text-danger' onclick="return confirm('{{$child->title}}を削除しますか？')">×</a>
-                                                </div>
-                                            </li>
-                                            @php $count++; @endphp
-                                            @endif
-                                            @endforeach
-                                        </ol>
-                                    </div>
-                                </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        <button class='btn btn-success btn-sm d-block mt-3' style="width:100%;">並び順を反映する</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">小項目</div>
+        <div class="col-md-12">
+            <div class="card border-0 bg-light">
                 <div class="card-body">
                     <div>
-                        <button type="button" class="btn btn-primary btn-sm @if(!Session::has('children')) focus @endif" id='add'>追加</button>
-                        <button type="button" class="btn btn-primary btn-sm @if(Session::has('children')) focus @endif" id='edit'>編集</button>
+                        <button type="button" class="btn btn-primary btn-sm @if(!Session::has('children')) focus @endif" id='add'>小項目追加</button>
+                        <button type="button" class="btn btn-primary btn-sm @if(Session::has('children')) focus @endif" id='edit'>小項目編集</button>
                     </div>
                     @if (session('child_status'))
                     <div class="alert alert-success mt-3" role="alert">
@@ -78,14 +29,14 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="addTitle">タイトル</label>
-                                    <input type="input" class="form-control @error('title') is-invalid @enderror" id="addTitle" name='title' value='{{ old("title") }}' autocomplete="off">
+                                    <input type="input" class="form-control @error('title') is-invalid @enderror" id="addTitle" name='title' value='{{ old("title") }}' autocomplete="off" required>
                                     @error('title')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="addText">説明文</label>
-                                    <input type="input" class="form-control @error('text') is-invalid @enderror" id="addText" name='text' value='{{ old("text") }}' autocomplete="off">
+                                    <input type="input" class="form-control @error('text') is-invalid @enderror" id="addText" name='text' value='{{ old("text") }}' autocomplete="off" required>
                                     @error('text')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -99,16 +50,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="addCoefficient">係数</label>
-                                    <input type="input" class="form-control @error('coefficient') is-invalid @enderror" id="addCoefficient" name='coefficient' value='{{ old("coefficient") }}' autocomplete="off">
+                                    <input type="input" class="form-control @error('coefficient') is-invalid @enderror" id="addCoefficient" name='coefficient' value='{{ old("coefficient") }}' autocomplete="off" required>
                                     @error('coefficient')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="addParentId">親項目</label>
-                                    <select class="form-control @error('parent_id') is-invalid @enderror" name='parent_id' id='addParentId'>
+                                    <label for="addParentPrefix">親項目</label>
+                                    <select class="form-control @error('parent_prefix') is-invalid @enderror" name='parent_prefix' id='addParentPrefix'>
                                         @foreach($parents as $parent)
-                                        <option value='{{ $parent->id }}'>{{ $parent->name }}</option>
+                                        <option value='{{ $parent->prefix }}'>{{ $parent->name }}</option>
                                         @endforeach
                                     </select>
                                     @error('parent_id')
@@ -128,7 +79,7 @@
                                     <select class="form-control @error('parent') is-invalid @enderror" name='parent' id='editParent'>
                                         <option value="" selected disabled>大項目を選択してください。</option>
                                         @foreach($parents as $parent)
-                                        <option value="{{ $parent->id }}">{{ $parent->name }}</option>
+                                        <option value="{{ $parent->prefix }}">{{ $parent->name }}</option>
                                         @endforeach
                                     </select>
                                     @error('parent')
@@ -148,14 +99,14 @@
                                     <hr>
                                     <div class="form-group mt-5">
                                         <label for="editTitle">タイトル</label>
-                                        <input type="input" class="form-control @error('edittitle') is-invalid @enderror" id="editTitle" name='edittitle' value='' autocomplete="off">
+                                        <input type="input" class="form-control @error('edittitle') is-invalid @enderror" id="editTitle" name='edittitle' value='' autocomplete="off" required>
                                         @error('edittitle')
                                         <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="editText">説明文</label>
-                                        <input type="input" class="form-control @error('edittext') is-invalid @enderror" id="editText" name='edittext' value='' autocomplete="off">
+                                        <input type="input" class="form-control @error('edittext') is-invalid @enderror" id="editText" name='edittext' value='' autocomplete="off" required>
                                         @error('edittext')
                                         <div class="text-danger">{{ $message }}</div>
                                         @enderror
@@ -176,16 +127,16 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="editCoefficient">係数</label>
-                                        <input type="input" class="form-control @error('editcoefficient') is-invalid @enderror" id="editCoefficient" name='editcoefficient' value='' autocomplete="off">
+                                        <input type="input" class="form-control @error('editcoefficient') is-invalid @enderror" id="editCoefficient" name='editcoefficient' value='' autocomplete="off" required>
                                         @error('editcoefficient')
                                         <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="editParentId">親項目</label>
-                                        <select class="form-control @error('editparent_id') is-invalid @enderror" name='editparent_id' id='editParentId'>
+                                        <label for="editParentPrefix">親項目</label>
+                                        <select class="form-control @error('editparent_prefix') is-invalid @enderror" name='editparent_prefix' id='editParentPrefix'>
                                             @foreach($parents as $parent)
-                                            <option value='{{ $parent->id }}'>{{ $parent->name }}</option>
+                                            <option value='{{ $parent->prefix }}'>{{ $parent->name }}</option>
                                             @endforeach
                                         </select>
                                         @error('editparent_id')
@@ -193,7 +144,7 @@
                                         @enderror
                                     </div>
                                     <button type="submit" name='editChild' class="btn btn-success">更新する</button>
-                                    <button type="submit" name='destroy' class="btn btn-danger">削除する</button>
+                                    <button type="submit" name='destroy' class="btn btn-danger ml-3">削除する</button>
                                 </div>
                             </form>
                         </div>

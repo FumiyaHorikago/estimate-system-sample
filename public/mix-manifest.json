@@ -1,6 +1,11 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/css/common.css": "/css/common.css",
     "/css/manage.css": "/css/manage.css",
-    "/js/manage.js": "/js/manage.js"
+    "/css/home.css": "/css/home.css",
+    "/css/contact.css": "/css/contact.css",
+    "/js/manage.js": "/js/manage.js",
+    "/js/odometer.js": "/js/odometer.js",
+    "/js/simulation.js": "/js/simulation.js"
 }

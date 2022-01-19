@@ -10,9 +10,11 @@ class ChildrenController extends Controller
     public function call(){
         return Children::orderBy('order','asc')->get();
     }
-    public function call_default(){
-        return Children::orderBy('order','asc')->where('parent_id',1)->get();
+
+    public function amount(){
+        return Children::where('prefix','amount')->count();
     }
+
 
     public function store(Request $request){
 
@@ -23,7 +25,7 @@ class ChildrenController extends Controller
             'text' => 'required|max:255',
             'image' => 'required|image',
             'coefficient' => 'lt:100|gt:0|numeric',
-            'parent_id' => 'required',
+            'parent_prefix' => 'required',
         ]);
 
         if ($file = $request->file('image')) {
@@ -34,15 +36,19 @@ class ChildrenController extends Controller
             $fileName = "";
         }
 
+        $latest = Children::orderBy('created_at','desc')->first();
+        $order = $latest->id + 1;
+
         $child = new Children;
         $child->title = $request->input('title');
         $child->text = $request->input('text');
         $child->file_name = $fileName;
         $child->coefficient = $request->input('coefficient');
-        $child->parent_id = $request->input('parent_id');
+        $child->prefix = $request->input('parent_prefix');
+        $child->order = $order;
         $child->save();
 
-        return redirect()->action('MasterController@showManage')->with('child_status','小項目を追加しました。');
+        return redirect()->action('ManageController@showManage')->with('child_status','小項目を追加しました。');
     }
 
     public function update(Request $request){
@@ -59,7 +65,7 @@ class ChildrenController extends Controller
             'edittext' => 'required|max:255',
             'editimage' => 'image',
             'editcoefficient' => 'lt:100|gt:0|numeric',
-            'editparent_id' => 'required',
+            'editparent_prefix' => 'required',
         ]);
 
 
@@ -76,39 +82,55 @@ class ChildrenController extends Controller
         $child->text = $request->input('edittext');
         $child->file_name = $fileName;
         $child->coefficient = $request->input('editcoefficient');
-        $child->parent_id = $request->input('editparent_id');
+        $child->prefix = $request->input('editparent_prefix');
         $child->save();
 
         $request->session()->forget('children');
 
-        return redirect()->action('MasterController@showManage')->with('child_status','小項目を更新しました。');
+        return redirect()->action('ManageController@showManage')->with('child_status','小項目を更新しました。');
     }
 
     public function order(Request $request){
 
-        $order = $request->input('child_id');
+        $order = json_decode($request->json,true);
         $count = 1;
+        $status = true;
 
         foreach($order as $id){
             $child = Children::find($id);
             $child->order = $count;
             $child->save();
 
+            if(!$child->save()){
+                $status=false;
+            }
+
             $count ++;
         }
-        return redirect()->action('MasterController@showManage')->with('child_status','並び順を反映しました。');
+        return json_encode($status);
     }
 
     public function destroy($id){
         Children::destroy($id);
-        return redirect()->action('MasterController@showManage')->with('child_alert','小項目を削除しました。');
+        return redirect()->action('ManageController@showManage')->with('child_alert','小項目を削除しました。');
     }
     public function getChild($id){
         $child = Children::find($id);
         return $child;
     }
-    public function getChildren($id){
-        $children= Children::where('parent_id',$id)->get();
+    public function getChildren($prefix){
+        $children= Children::where('prefix',$prefix)->get();
         return $children;
+    }
+    public function choiceChildren(Request $request){
+        $decode = json_decode($request->json);
+        $idArray = $decode[0];
+        $children = array();
+        $dataset = array();
+        foreach($idArray as $id){
+            $child = Children::find($id);
+            array_push($dataset, ['title'=>$child->title,'coefficient'=>$child->coefficient,'prefix'=>$child->prefix]);
+        }
+        return $dataset;
     }
 }

@@ -8,4 +8,7 @@ class UserData extends Model
 {
     //
     protected $table = 'user_data';
+    protected $casts = [
+        'choices' => 'array',
+    ];
 }

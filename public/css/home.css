@@ -1,0 +1,448 @@
+@charset "UTF-8";
+.hide {
+  display: none;
+}
+
+main {
+  background-color: #f5f4f1;
+  overflow-x: hidden;
+}
+main #mainvisual {
+  position: relative;
+}
+main #mainvisual .mv-bg {
+  filter: drop-shadow(0px 5px 3px #c7c4c1);
+}
+main #mainvisual .mv-bg img {
+  width: 100%;
+  height: 704px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (max-width: 767px) {
+  main #mainvisual .mv-bg img {
+    height: auto;
+  }
+}
+main #mainvisual .icon {
+  position: absolute;
+  top: 260px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 500px;
+}
+@media screen and (max-width: 767px) {
+  main #mainvisual .icon {
+    top: calc(10.625rem + (1vw - 3.2px) * 62.6398);
+  }
+}
+main #mainvisual .icon img {
+  width: 100%;
+}
+main #mainvisual .text {
+  position: absolute;
+  top: 510px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  text-align: center;
+  line-height: 1.5;
+}
+@media screen and (max-width: 767px) {
+  main #mainvisual .text {
+    width: calc(16.25rem + (1vw - 3.2px) * 42.5056);
+    top: calc(16.25rem + (1vw - 3.2px) * 87.2483);
+    font-size: calc(0.6875rem + (1vw - 3.2px) * 0.6711);
+  }
+}
+main #simulation {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 60px 10px;
+  background-color: white;
+}
+main #simulation .main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+main #simulation .main-container .estimate-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 767px) {
+  main #simulation .main-container .estimate-title {
+    margin-bottom: 40px;
+  }
+}
+main #simulation .main-container .estimate-title strong {
+  display: inline-block;
+  color: white;
+  padding: 15px;
+  background-color: black;
+  letter-spacing: 1px;
+}
+main #simulation .main-container .parent {
+  margin-bottom: 60px;
+  /* 次ページボタンのスタイル */
+  /* 前ページボタンのスタイル */
+}
+main #simulation .main-container .parent .title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+@media screen and (max-width: 767px) {
+  main #simulation .main-container .parent .title {
+    justify-content: center;
+  }
+}
+main #simulation .main-container .parent .title svg {
+  width: 30px;
+  margin-right: 10px;
+}
+main #simulation .main-container .parent .title h2 {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+@media screen and (max-width: 767px) {
+  main #simulation .main-container .parent .title h2 {
+    font-size: 18px;
+  }
+}
+main #simulation .main-container .parent .subtitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+main #simulation .main-container .parent .subtitle.odd::before {
+  content: "\25A0";
+  color: #f6ab00;
+  margin-right: 10px;
+}
+main #simulation .main-container .parent .subtitle.even::before {
+  content: "\25A0";
+  color: #e51780;
+  margin-right: 10px;
+}
+main #simulation .main-container .parent .items {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+}
+main #simulation .main-container .parent .items::before {
+  content: "";
+  display: block;
+  width: 23%;
+  order: 1;
+}
+main #simulation .main-container .parent .items::after {
+  content: "";
+  display: block;
+  width: 23%;
+}
+main #simulation .main-container .parent .items label {
+  width: 23%;
+  display: block;
+  background-color: white;
+  filter: drop-shadow(0 0 5px #bbb);
+  margin-bottom: 20px;
+}
+main #simulation .main-container .parent .items label.mobile {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 767px) {
+  main #simulation .main-container .parent .items label {
+    width: 100%;
+  }
+}
+main #simulation .main-container .parent .items label .child .img img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/9;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main #simulation .main-container .parent .items label .child .child-info {
+  padding: 10px;
+}
+main #simulation .main-container .parent .items label .child .child-info strong {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+main #simulation .main-container .parent .items label .child .child-info strong input {
+  margin-right: 5px;
+}
+main #simulation .main-container .parent .items label .child .child-info p {
+  font-size: 12px;
+  color: #727171;
+}
+main #simulation .main-container .parent .swiper-horizontal > .swiper-pagination-bullets,
+main #simulation .main-container .parent .swiper-pagination-bullets.swiper-pagination-horizontal,
+main #simulation .main-container .parent .swiper-pagination-custom,
+main #simulation .main-container .parent .swiper-pagination-fraction {
+  bottom: -30px;
+}
+main #simulation .main-container .parent .swiper-button-prev,
+main #simulation .main-container .parent .swiper-button-next {
+  position: absolute;
+  top: 50%;
+  width: calc(var(--swiper-navigation-size) / 44 * 27);
+  height: var(--swiper-navigation-size);
+  margin-top: calc(-1 * var(--swiper-navigation-size) / 2);
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--swiper-navigation-color, var(--swiper-theme-color));
+  width: 30px;
+  /* ボタンの幅 */
+  height: 30px;
+  /* ボタンの高さ */
+  background-size: 30px 30px;
+  /* 背景画像としてのサイズ（＝表示したい画像サイズ） */
+  margin-top: -24px;
+  /* 縦中央配置用：ボタンの高さの半分のネガティブマージン（top:50%がすでに設定されている） */
+}
+main #simulation .main-container .parent .swiper-button-next {
+  background: url("../../images/prev.png");
+  background-size: contain;
+  transform: scale(-1, 1);
+  /* 左右反転 */
+  right: -10px;
+}
+main #simulation .main-container .parent .swiper-button-prev {
+  background: url("../../images/prev.png");
+  background-size: contain;
+  left: -10px;
+}
+main #simulation .main-container .parent .swiper-button-prev:after,
+main #simulation .main-container .parent .swiper-button-next:after {
+  font-family: swiper-icons;
+  font-size: var(--swiper-navigation-size);
+  text-transform: none !important;
+  letter-spacing: 0;
+  text-transform: none;
+  font-variant: initial;
+}
+main #simulation .main-container .parent .swiper-button-prev:after,
+main #simulation .main-container .parent .swiper-container-rtl .swiper-button-next:after {
+  display: none;
+}
+main #simulation .main-container .parent .swiper-button-next:after,
+main #simulation .main-container .parent .swiper-container-rtl .swiper-button-prev:after {
+  display: none;
+}
+main #simulation .main-container #main-panel {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+@media screen and (max-width: 767px) {
+  main #simulation .main-container #main-panel {
+    flex-direction: column;
+  }
+}
+main #simulation .main-container #main-panel .right {
+  width: 49%;
+}
+@media screen and (max-width: 767px) {
+  main #simulation .main-container #main-panel .right {
+    width: 100%;
+    margin-top: 40px;
+  }
+}
+main #simulation .main-container #main-panel .right #choices table {
+  width: 100%;
+  table-layout: fixed;
+}
+main #simulation .main-container #main-panel .right #choices table tr {
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(232, 56, 40, 0.1);
+  margin-bottom: 3px;
+}
+@media screen and (max-width: 767px) {
+  main #simulation .main-container #main-panel .right #choices table tr {
+    flex-direction: column;
+  }
+}
+main #simulation .main-container #main-panel .right #choices table tr.hide {
+  display: none;
+}
+main #simulation .main-container #main-panel .right #choices table tr th {
+  white-space: nowrap;
+  font-weight: normal;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  min-width: 250px;
+  border-right: solid 3px white;
+  font-size: 16px;
+}
+@media screen and (max-width: 1200px) {
+  main #simulation .main-container #main-panel .right #choices table tr th {
+    min-width: calc(14.1875rem + (1vw - 7.68px) * 5.3241);
+    font-size: calc(0.875rem + (1vw - 7.68px) * 0.463);
+  }
+}
+@media screen and (max-width: 767px) {
+  main #simulation .main-container #main-panel .right #choices table tr th {
+    width: 100%;
+    border-right: none;
+  }
+}
+main #simulation .main-container #main-panel .right #choices table tr th svg {
+  width: 25px;
+  margin-right: 8px;
+}
+main #simulation .main-container #main-panel .right #choices table tr td {
+  width: 70%;
+  color: #727272;
+  font-size: 14px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #f5f4f0;
+}
+@media screen and (max-width: 767px) {
+  main #simulation .main-container #main-panel .right #choices table tr td {
+    width: 100%;
+  }
+}
+main #simulation .main-container #main-panel .right #choices table tr td > table {
+  table-layout: fixed;
+  width: 100%;
+}
+main #simulation .main-container #main-panel .right #choices table tr td > table tr {
+  margin-bottom: 0;
+  border-bottom: none;
+  border-top: 2px solid white;
+}
+main #simulation .main-container #main-panel .right #choices table tr td > table tr:first-child {
+  border-top: none;
+}
+@media screen and (max-width: 767px) {
+  main #simulation .main-container #main-panel .right #choices table tr td > table tr {
+    flex-direction: row;
+  }
+}
+main #simulation .main-container #main-panel .right #choices table tr td > table tr th {
+  padding: 10px 0;
+  background-color: #f5f4f0;
+  border-right: none;
+  width: 25%;
+  min-width: 80px;
+}
+@media screen and (max-width: 1200px) {
+  main #simulation .main-container #main-panel .right #choices table tr td > table tr th {
+    min-width: calc(3.75rem + (1vw - 7.68px) * 4.6296);
+  }
+}
+main #simulation .main-container #main-panel .right #choices table tr td > table tr td {
+  padding: 10px 0;
+  background-color: #f5f4f0;
+  width: 85%;
+}
+main #simulation .main-container #main-panel .left {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+@media screen and (max-width: 767px) {
+  main #simulation .main-container #main-panel .left {
+    width: 100%;
+    margin-top: 40px;
+  }
+}
+main #simulation .main-container #main-panel .left #price {
+  padding: 0 10px;
+  font-size: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid #f6ab00 5px;
+  color: #444;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 1200px) {
+  main #simulation .main-container #main-panel .left #price {
+    font-size: calc(2.5rem + (1vw - 7.68px) * 9.2593);
+  }
+}
+@media screen and (max-width: 767px) {
+  main #simulation .main-container #main-panel .left #price {
+    font-size: calc(2.375rem + (1vw - 3.2px) * 9.396);
+    margin-bottom: 30px;
+  }
+}
+main #simulation .main-container #main-panel .left #run {
+  background-color: #e93528;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: #b22d23 solid 10px;
+  border-radius: 20px;
+  padding: 30px;
+  font-size: 40px;
+  width: 100%;
+}
+@media screen and (max-width: 767px) {
+  main #simulation .main-container #main-panel .left #run {
+    font-size: 32px;
+  }
+}
+main #simulation .main-container #main-panel .left #run:hover {
+  transition: 0.2s;
+  margin-top: 2px;
+  border-bottom: #b22d23 solid 8px;
+}
+main #simulation .main-container #main-panel .left #run:hover span {
+  filter: drop-shadow(0 0 3px yellow);
+}
+main #simulation .main-container #main-panel .left #run:active {
+  transition: 0.2s;
+  margin-top: 9px;
+  border-bottom: #b22d23 solid 1px;
+}
+main #simulation .main-container #main-panel .left #run:active span {
+  filter: drop-shadow(0 0 3px yellow);
+}
+main #simulation .main-container #main-panel .left #send {
+  margin-top: 20px;
+  background-color: #e51781;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: #a51f62 solid 10px;
+  border-radius: 100px;
+  padding: 10px;
+  font-size: 20px;
+  width: 100%;
+}
+main #simulation .main-container #main-panel .left #send:hover {
+  transition: 0.2s;
+  margin-top: 22px;
+  border-bottom: #a51f62 solid 8px;
+}
+main #simulation .main-container #main-panel .left #send:hover span {
+  filter: drop-shadow(0 0 3px white);
+}
+main #simulation .main-container #main-panel .left #send:active {
+  transition: 0.2s;
+  margin-top: 29px;
+  border-bottom: #a51f62 solid 1px;
+}
+main #simulation .main-container #main-panel .left #send:active span {
+  filter: drop-shadow(0 0 3px white);
+}

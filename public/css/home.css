@@ -321,7 +321,7 @@ main #simulation .main-container #main-panel .right #choices table tr td > table
   background-color: #f5f4f0;
   border-right: none;
   width: 25%;
-  min-width: 80px;
+  min-width: 100px;
 }
 @media screen and (max-width: 1200px) {
   main #simulation .main-container #main-panel .right #choices table tr td > table tr th {

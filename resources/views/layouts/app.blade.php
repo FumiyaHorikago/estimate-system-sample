@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>住宅見積シミュレーション</title>
+    <title>Title</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>

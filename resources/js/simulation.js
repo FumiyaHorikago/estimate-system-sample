@@ -35,7 +35,7 @@ $(function () {
     })
       //通信が成功したとき
       .done((res) => {
-        amount = res.title.replace('部屋', '');
+        amount = res.title.replace('項目', '');
         for (var i = 1; i <= total; i++) {
           if (i <= amount) {
             $('.variable' + i).removeClass('hide');

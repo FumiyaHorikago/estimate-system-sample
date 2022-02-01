@@ -56,7 +56,7 @@
             <div class='choose'>
                 <div class='unit'>
                     <div class='head'>
-                        <span>建物の形式は？</span>
+                        <span>項目1</span>
                     </div>
                     <div class='body'>
                         {{ $session['format'] }}
@@ -65,7 +65,7 @@
                 </div>
                 <div class='unit'>
                     <div class='head'>
-                        <span>リビングの広さは？</span>
+                        <span>項目2</span>
                     </div>
                     <div class='body'>
                         {{ $session['living'] }}
@@ -74,7 +74,7 @@
                 </div>
                 <div class='unit'>
                     <div class='head'>
-                        <span>ダイニングの広さは？</span>
+                        <span>項目3</span>
                     </div>
                     <div class='body'>
                         {{ $session['dining'] }}
@@ -83,7 +83,7 @@
                 </div>
                 <div class='unit'>
                     <div class='head'>
-                        <span>DK以外の希望部屋数は？</span>
+                        <span>項目4</span>
                     </div>
                     <div class='body'>
                         {{ $session['amount'] }}
@@ -97,7 +97,7 @@
 
                 <div class='unit'>
                     <div class='head'>
-                        <span>それぞれ何畳？</span>
+                        <span>項目5</span>
                     </div>
                     <div class='body'>
                         @if($num === 1)
@@ -114,7 +114,7 @@
                 </div>
                 <div class='unit'>
                     <div class='head'>
-                        <span>それぞれの部屋タイプは？</span>
+                        <span>項目6</span>
                     </div>
                     <div class='body'>
                         @if($num === 1)
@@ -132,7 +132,7 @@
 
                 <div class='unit'>
                     <div class='head'>
-                        <span>それぞれの部屋の収納は？</span>
+                        <span>項目7</span>
                     </div>
                     <div class='body'>
                         @if($num === 1)

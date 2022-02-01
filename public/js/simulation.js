@@ -225,7 +225,7 @@ $(function () {
     var pLen = parents.length;
 
     if (dataLen < pLen) {
-      alert('項目を選択し、「How Much ??」ボタンより見積額を算出してください。');
+      alert('項目を選択し、「金額を算出」ボタンより見積額を算出してください。');
       return false;
     }
   });
@@ -365,7 +365,7 @@ $(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/estimate-system/resources/js/simulation.js */"./resources/js/simulation.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/estimate-system-sample/resources/js/simulation.js */"./resources/js/simulation.js");
 
 
 /***/ })

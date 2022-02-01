@@ -912,7 +912,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/estimate-system/resources/js/odometer.js */"./resources/js/odometer.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/estimate-system-sample/resources/js/odometer.js */"./resources/js/odometer.js");
 
 
 /***/ })

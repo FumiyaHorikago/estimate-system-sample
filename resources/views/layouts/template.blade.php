@@ -21,14 +21,14 @@
     <header>
         <div class='top'>
             <div class='header-container'>
-                <h1><a href="http://www.k-takaken.co.jp/"><img src="{{ asset('images/logo.png') }}" alt="株式会社タカケン"></a></h1>
+                <h1><a>ロゴが入ります</a></h1>
             </div>
         </div>
         <div class='bottom'>
             <div class='header-container'>
                 <ul>
                     <li>
-                        <a>住宅見積 シミュレーション</a>
+                        <a>ナビゲーション</a>
                     </li>
                 </ul>
             </div>

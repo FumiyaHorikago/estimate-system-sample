@@ -246,7 +246,7 @@ $(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/estimate-system/resources/js/manage.js */"./resources/js/manage.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/estimate-system-sample/resources/js/manage.js */"./resources/js/manage.js");
 
 
 /***/ })

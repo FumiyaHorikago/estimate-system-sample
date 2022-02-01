@@ -12,10 +12,7 @@
 
     <div id='form'>
         <div class='title'>
-            <div class='logo'>
-                <img src="{{ asset('images/mv_icon.png') }}" alt="ハウスmuch?">
-            </div>
-            <h2>お見積もり内容でお問い合わせ</h2>
+            <h2>お問い合わせ</h2>
         </div>
 
         <form action="{{ route('contact.store') }}" method='POST'>
@@ -95,7 +92,7 @@
                 </div>
                 @php
                 $amount = $session['amount'];
-                $num = intval(str_replace('部屋','',$amount));
+                $num = intval(str_replace('項目','',$amount));
                 @endphp
 
                 <div class='unit'>
@@ -104,11 +101,11 @@
                     </div>
                     <div class='body'>
                         @if($num === 1)
-                        <span>部屋（1）</span>
+                        <span>変動項目（1）</span>
                         {{ $session['tatami'] }}
                         <input type="hidden" name='tatami' value='{{ $session["tatami"] }}'>
                         @else
-                        @for($i = 1;$i<=$num;$i++) <span>部屋（{{$i}}）</span>
+                        @for($i = 1;$i<=$num;$i++) <span>変動項目（{{$i}}）</span>
                             {{ $session['tatami'][$i-1] }}
                             <input type="hidden" name='tatami[]' value='{{ $session["tatami"][$i-1] }}'>
                             @endfor
@@ -121,11 +118,11 @@
                     </div>
                     <div class='body'>
                         @if($num === 1)
-                        <span>部屋（1）</span>
+                        <span>変動項目（1）</span>
                         {{ $session['type'] }}
                         <input type="hidden" name='type' value='{{ $session["type"] }}'>
                         @else
-                        @for($i = 1;$i<=$num;$i++) <span>部屋（{{$i}}）</span>
+                        @for($i = 1;$i<=$num;$i++) <span>変動項目（{{$i}}）</span>
                             {{ $session['type'][$i-1] }}
                             <input type="hidden" name='type[]' value='{{ $session["type"][$i-1] }}'>
                             @endfor
@@ -139,11 +136,11 @@
                     </div>
                     <div class='body'>
                         @if($num === 1)
-                        <span>部屋（1）</span>
+                        <span>変動項目（1）</span>
                         {{ $session['closet'] }}
                         <input type="hidden" name='closet' value='{{ $session["closet"] }}'>
                         @else
-                        @for($i = 1;$i<=$num;$i++) <span>部屋（{{$i}}）</span>
+                        @for($i = 1;$i<=$num;$i++) <span>変動項目（{{$i}}）</span>
                             {{ $session['closet'][$i-1] }}
                             <input type="hidden" name='closet[]' value='{{ $session["closet"][$i-1] }}'>
                             @endfor

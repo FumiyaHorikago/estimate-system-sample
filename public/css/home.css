@@ -10,34 +10,10 @@ main {
 main #mainvisual {
   position: relative;
 }
-main #mainvisual .mv-bg {
-  filter: drop-shadow(0px 5px 3px #c7c4c1);
-}
-main #mainvisual .mv-bg img {
+main #mainvisual .mv {
   width: 100%;
-  height: 704px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-@media screen and (max-width: 767px) {
-  main #mainvisual .mv-bg img {
-    height: auto;
-  }
-}
-main #mainvisual .icon {
-  position: absolute;
-  top: 260px;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: 500px;
-}
-@media screen and (max-width: 767px) {
-  main #mainvisual .icon {
-    top: calc(10.625rem + (1vw - 3.2px) * 62.6398);
-  }
-}
-main #mainvisual .icon img {
-  width: 100%;
+  height: 50.25vw;
+  background-color: #aaa;
 }
 main #mainvisual .text {
   position: absolute;
@@ -97,19 +73,29 @@ main #simulation .main-container .parent .title {
     justify-content: center;
   }
 }
-main #simulation .main-container .parent .title svg {
-  width: 30px;
-  margin-right: 10px;
-}
 main #simulation .main-container .parent .title h2 {
   font-size: 20px;
   font-weight: bold;
   letter-spacing: 1px;
+  position: relative;
+  padding-left: 25px;
 }
 @media screen and (max-width: 767px) {
   main #simulation .main-container .parent .title h2 {
     font-size: 18px;
   }
+}
+main #simulation .main-container .parent .title h2::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: #727171;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
 }
 main #simulation .main-container .parent .subtitle {
   font-size: 20px;
@@ -118,15 +104,9 @@ main #simulation .main-container .parent .subtitle {
   display: flex;
   align-items: center;
 }
-main #simulation .main-container .parent .subtitle.odd::before {
-  content: "\25A0";
-  color: #f6ab00;
-  margin-right: 10px;
-}
-main #simulation .main-container .parent .subtitle.even::before {
-  content: "\25A0";
-  color: #e51780;
-  margin-right: 10px;
+main #simulation .main-container .parent .subtitle::before {
+  content: "\30FB";
+  color: #aaa;
 }
 main #simulation .main-container .parent .items {
   display: flex;
@@ -268,7 +248,7 @@ main #simulation .main-container #main-panel .right #choices table {
 main #simulation .main-container #main-panel .right #choices table tr {
   display: flex;
   flex-direction: row;
-  background-color: rgba(232, 56, 40, 0.1);
+  background-color: #ccc;
   margin-bottom: 3px;
 }
 @media screen and (max-width: 767px) {
@@ -371,7 +351,7 @@ main #simulation .main-container #main-panel .left #price {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: solid #f6ab00 5px;
+  border-bottom: solid #ccc 5px;
   color: #444;
   margin-bottom: 20px;
 }
@@ -387,14 +367,13 @@ main #simulation .main-container #main-panel .left #price {
   }
 }
 main #simulation .main-container #main-panel .left #run {
-  background-color: #e93528;
+  background-color: #72d35a;
   color: white;
   text-align: center;
   font-weight: bold;
-  border-bottom: #b22d23 solid 10px;
-  border-radius: 20px;
-  padding: 30px;
-  font-size: 40px;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 26px;
   width: 100%;
 }
 @media screen and (max-width: 767px) {
@@ -404,45 +383,20 @@ main #simulation .main-container #main-panel .left #run {
 }
 main #simulation .main-container #main-panel .left #run:hover {
   transition: 0.2s;
-  margin-top: 2px;
-  border-bottom: #b22d23 solid 8px;
-}
-main #simulation .main-container #main-panel .left #run:hover span {
-  filter: drop-shadow(0 0 3px yellow);
-}
-main #simulation .main-container #main-panel .left #run:active {
-  transition: 0.2s;
-  margin-top: 9px;
-  border-bottom: #b22d23 solid 1px;
-}
-main #simulation .main-container #main-panel .left #run:active span {
-  filter: drop-shadow(0 0 3px yellow);
+  opacity: 0.8;
 }
 main #simulation .main-container #main-panel .left #send {
   margin-top: 20px;
-  background-color: #e51781;
+  background-color: #ffb647;
   color: white;
   text-align: center;
   font-weight: bold;
-  border-bottom: #a51f62 solid 10px;
-  border-radius: 100px;
+  border-radius: 10px;
   padding: 10px;
   font-size: 20px;
   width: 100%;
 }
 main #simulation .main-container #main-panel .left #send:hover {
   transition: 0.2s;
-  margin-top: 22px;
-  border-bottom: #a51f62 solid 8px;
-}
-main #simulation .main-container #main-panel .left #send:hover span {
-  filter: drop-shadow(0 0 3px white);
-}
-main #simulation .main-container #main-panel .left #send:active {
-  transition: 0.2s;
-  margin-top: 29px;
-  border-bottom: #a51f62 solid 1px;
-}
-main #simulation .main-container #main-panel .left #send:active span {
-  filter: drop-shadow(0 0 3px white);
+  opacity: 0.8;
 }

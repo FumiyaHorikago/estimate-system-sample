@@ -132,7 +132,7 @@ $(function () {
     var dataLen = $('.send_data').length;
     var pLen = parents.length;
     if (dataLen < pLen) {
-      alert('項目を選択し、「How Much ??」ボタンより見積額を算出してください。');
+      alert('項目を選択し、「金額を算出」ボタンより見積額を算出してください。');
       return false;
     }
 

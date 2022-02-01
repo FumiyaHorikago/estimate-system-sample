@@ -101,30 +101,6 @@ class MasterController extends Controller
             'price' => ['required'],
         ]);
 
-        $choices = [];
-        $parents = [
-            'format',
-            'living',
-            'dining',
-            'amount',
-            'tatami',
-            'type',
-            'closet',
-        ];
-
-        foreach($parents as $parent){
-            $choices+=[$parent => $request->input($parent)];
-        }
-
-
-        $data = new UserData();
-        $data->name = $request->input('name');
-        $data->email = $request->input('mail');
-        $data->tel = $request->input('tel');
-        $data->comment = $request->input('comment');
-        $data->choices = $choices;
-        $data->amount = $request->input('price');
-        $data->save();
 
         return redirect()->action('MasterController@showComplete');
     }

@@ -34,7 +34,7 @@ main #contact #form .title h2 {
   display: inline-block;
   color: white;
   padding: 15px;
-  background-color: black;
+  background-color: #555;
   letter-spacing: 1px;
   font-weight: bold;
 }
@@ -48,7 +48,7 @@ main #contact #form .caption span {
 main #contact #form form .unit {
   display: flex;
   flex-direction: row;
-  background-color: rgba(232, 56, 40, 0.1);
+  background-color: #ccc;
   margin-bottom: 3px;
 }
 @media screen and (max-width: 767px) {
@@ -124,11 +124,10 @@ main #contact #form form .controls {
   }
 }
 main #contact #form form .controls button {
-  background-color: #e93528;
+  background-color: #2baa00;
   color: white;
   text-align: center;
   font-weight: bold;
-  border-bottom: #b22d23 solid 10px;
   border-radius: 20px;
   padding: 10px;
   font-size: 20px;
@@ -136,7 +135,6 @@ main #contact #form form .controls button {
 }
 main #contact #form form .controls button.back {
   background-color: #b8b8b8;
-  border-bottom: #616161 solid 10px;
 }
 @media screen and (max-width: 767px) {
   main #contact #form form .controls button.back {
@@ -151,35 +149,7 @@ main #contact #form form .controls button.back {
 }
 main #contact #form form .controls button:hover {
   transition: 0.2s;
-  margin-top: 2px;
-}
-main #contact #form form .controls button:hover.back {
-  border-bottom: #616161 solid 8px;
-}
-main #contact #form form .controls button:hover.back span {
-  filter: drop-shadow(0 0 3px white);
-}
-main #contact #form form .controls button:hover.submit {
-  border-bottom: #b22d23 solid 8px;
-}
-main #contact #form form .controls button:hover.submit span {
-  filter: drop-shadow(0 0 3px yellow);
-}
-main #contact #form form .controls button:active {
-  transition: 0.2s;
-  margin-top: 9px;
-}
-main #contact #form form .controls button:active.back {
-  border-bottom: #616161 solid 1px;
-}
-main #contact #form form .controls button:active.back span {
-  filter: drop-shadow(0 0 3px white);
-}
-main #contact #form form .controls button:active.submit {
-  border-bottom: #b22d23 solid 1px;
-}
-main #contact #form form .controls button:active.submit span {
-  filter: drop-shadow(0 0 3px yellow);
+  opacity: 0.8;
 }
 main #contact #form.complete {
   text-align: center;
@@ -205,7 +175,7 @@ main #contact #form.complete > p {
 }
 main #contact #form.complete .btn {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 @media screen and (max-width: 767px) {
   main #contact #form.complete .btn {
@@ -215,11 +185,10 @@ main #contact #form.complete .btn {
   }
 }
 main #contact #form.complete .btn a {
-  background-color: #e93528;
+  background-color: #2baa00;
   color: white;
   text-align: center;
   font-weight: bold;
-  border-bottom: #b22d23 solid 10px;
   border-radius: 20px;
   padding: 10px;
   font-size: 20px;
@@ -231,34 +200,7 @@ main #contact #form.complete .btn a {
     font-size: 18px;
   }
 }
-main #contact #form.complete .btn a:last-child {
-  background-color: #2baa00;
-  border-bottom: #0c6a00 solid 10px;
-}
-@media screen and (max-width: 767px) {
-  main #contact #form.complete .btn a:last-child {
-    margin-top: 20px;
-  }
-}
 main #contact #form.complete .btn a:hover {
   transition: 0.2s;
-  margin-top: 2px;
-  border-bottom: #b22d23 solid 8px;
-}
-main #contact #form.complete .btn a:hover span {
-  filter: drop-shadow(0 0 3px yellow);
-}
-main #contact #form.complete .btn a:hover:last-child {
-  border-bottom: #0c6a00 solid 8px;
-}
-main #contact #form.complete .btn a:active {
-  transition: 0.2s;
-  margin-top: 9px;
-  border-bottom: #b22d23 solid 1px;
-}
-main #contact #form.complete .btn a:active:last-child {
-  border-bottom: #0c6a00 solid 1px;
-}
-main #contact #form.complete .btn a:active span {
-  filter: drop-shadow(0 0 3px yellow);
+  opacity: 0.8;
 }

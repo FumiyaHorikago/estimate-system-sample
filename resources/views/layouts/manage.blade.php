@@ -27,7 +27,9 @@
     <div id="app">
         <div class='row mr-0 ml-0' style='width:100%;'>
                 <div class="d-flex flex-column p-3 text-white" style="width: 280px; min-height: 100vh; background-color:#2B3F54;">
-                        管理画面
+                        <a class="text-white d-block text-center mb-3 border-bottom border-3 border-white py-2 text-decoration-none" href="{{ url('/') }}" style='font-size: 20px;'>
+                            システムに戻る
+                        </a>
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
                         <a href="{{ route('manage.home') }}" class="nav-link text-white @stack('nav1')" aria-current="page">

@@ -101,7 +101,6 @@ class MasterController extends Controller
             'price' => ['required'],
         ]);
 
-
         return redirect()->action('MasterController@showComplete');
     }
     public function showComplete(){
